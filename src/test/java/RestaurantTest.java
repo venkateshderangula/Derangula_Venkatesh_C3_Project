@@ -5,6 +5,8 @@ import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.doReturn;
@@ -74,4 +76,20 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //<<<<<<<<<<<<<<<Part2 add test case for part3>>>>>>>>>>>>>>>>
+
+    @Test
+    public void verify_total_price_of_selected_items(){
+        List<String> items = new ArrayList<>();
+        items.add("Sweet corn soup");
+        items.add("Vegetable lasagne");
+
+        restaurant = new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restaurant.addToMenu("lassy",100);
+        restaurant.addToMenu("biryani", 200);
+        restaurant.addToMenu("roti",50);
+
+        assertEquals(350,restaurant.getTotalPrice(items));
+    }
 }
