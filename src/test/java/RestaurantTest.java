@@ -81,9 +81,12 @@ class RestaurantTest {
 
     @Test
     public void verify_total_price_of_selected_items(){
-        List<String> items = new ArrayList<>();
-        items.add("Sweet corn soup");
-        items.add("Vegetable lasagne");
+        List<Item> items = new ArrayList<>();
+        items.add(new Item("lassy",100));
+        items.add(new Item("biryani", 200));
+        items.add(new Item("roti",50));
+
+
 
         restaurant = new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
         restaurant.addToMenu("lassy",100);
